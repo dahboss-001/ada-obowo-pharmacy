@@ -4,9 +4,9 @@
 const CONFIG = {
   name: "Ada Obowo Pharmacy & Wellness",
   // WhatsApp number in international format, digits only (no +, spaces or dashes).
-  whatsapp: "2340000000000",
-  phoneDisplay: "+234 000 000 0000",
-  phoneTel: "+2340000000000",
+  whatsapp: "2349069626804",
+  phoneDisplay: "+234 906 962 6804",
+  phoneTel: "+2349069626804",
   email: "hello@example.com",
   address: "123 Market Road, Aba, Abia State",
   hours: "Mon-Sat: 8am - 9pm  •  Sun: 12pm - 6pm"
