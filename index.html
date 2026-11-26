@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
 
@@ -34,6 +34,7 @@
       <a href="#shop">Shop</a>
       <a href="#prescription">Prescription</a>
       <a href="#consult">Consult</a>
+      <a href="#plans">Plans</a>
       <a href="#delivery">Delivery</a>
       <a href="#tips">Health Tips</a>
       <a href="#faq">FAQ</a>
@@ -162,6 +163,21 @@
         <div class="chat-bubble us">Okay. A standard pain reliever should help - I'll recommend one and the right dose. If it persists beyond 2 days, please see a doctor. 🩺</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ===== Subscription plans ===== -->
+<section class="section section-plans" id="plans">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Refill plans</span>
+        <h2>Never run out again.</h2>
+        <p class="section-sub">Join a monthly refill plan: we schedule your medications, members save on every order, and delivery within Aba is free. Prices and discounts below are placeholders for the pharmacy to set.</p>
+      </div>
+    </div>
+    <div class="plans-grid" id="plansGrid"></div>
+    <p class="fine-print plans-note">No online payment - we confirm your plan, schedule and payment options with you on WhatsApp. Prescription medicines in any plan are dispensed only after pharmacist review.</p>
   </div>
 </section>
 
@@ -305,6 +321,18 @@
   </div>
 </footer>
 
+<!-- ===== First-visit popup ===== -->
+<div class="popup-overlay" id="planPopup" role="dialog" aria-modal="true" aria-labelledby="planPopupTitle">
+  <div class="popup-card">
+    <button class="popup-close" id="planPopupClose" type="button" aria-label="Close">✕</button>
+    <div class="popup-icon">🗓️💊</div>
+    <h3 id="planPopupTitle">Your health, on schedule</h3>
+    <p>With a monthly refill plan we pack and deliver your medications on schedule - with member discounts and free delivery in Aba.</p>
+    <button class="btn btn-primary btn-block" id="planPopupCta" type="button">See refill plans</button>
+    <button class="popup-later" id="planPopupLater" type="button">Maybe later</button>
+  </div>
+</div>
+
 <!-- ===== Floating WhatsApp ===== -->
 <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
   <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor"><path d="M16 .8C7.6.8.8 7.6.8 16c0 2.7.7 5.3 2 7.6L.8 31.2l7.8-2c2.2 1.2 4.7 1.9 7.4 1.9 8.4 0 15.2-6.8 15.2-15.2S24.4.8 16 .8zm0 27.7c-2.3 0-4.6-.6-6.5-1.8l-.5-.3-4.6 1.2 1.2-4.5-.3-.5c-1.3-2-2-4.3-2-6.7C3.3 9 9 3.3 16 3.3S28.7 9 28.7 16 23 28.5 16 28.5zm7-9.5c-.4-.2-2.3-1.1-2.6-1.2-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.3-2.1-2.6-.2-.4 0-.6.2-.8.2-.2.4-.4.6-.7.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.8-2-1.1-2.8-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.7.1-1 .5-.3.4-1.3 1.3-1.3 3.1s1.3 3.6 1.5 3.9c.2.3 2.6 4 6.3 5.6.9.4 1.6.6 2.1.8.9.3 1.7.2 2.3.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5z"/></svg>
@@ -327,6 +355,6 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="app.js?v=3"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>

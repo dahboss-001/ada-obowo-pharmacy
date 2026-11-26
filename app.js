@@ -9,7 +9,37 @@ const CONFIG = {
   phoneTel: "+2349069626804",
   email: "hello@example.com",
   address: "123 Market Road, Aba, Abia State",
-  hours: "Mon-Sat: 8am - 9pm  •  Sun: 12pm - 6pm"
+  hours: "Mon-Sat: 8am - 9pm  •  Sun: 12pm - 6pm",
+  // Subscription plans: EDIT prices, discounts and features to the pharmacy's real offer.
+  plans: [
+    {
+      name: "Basic",
+      emoji: "💊",
+      price: 2000,           // placeholder monthly fee
+      discount: 5,           // placeholder member discount %
+      tagline: "For one person's everyday essentials",
+      features: ["Monthly refill of your regular items", "5% member discount on orders", "Free delivery within Aba", "WhatsApp refill reminders"],
+      featured: false
+    },
+    {
+      name: "Family",
+      emoji: "👨‍👩‍👧‍👦",
+      price: 5000,           // placeholder monthly fee
+      discount: 10,          // placeholder member discount %
+      tagline: "Cover the whole household in one plan",
+      features: ["Monthly refills for up to 5 family members", "10% member discount on orders", "Free delivery within Aba", "Priority pharmacist chat"],
+      featured: true
+    },
+    {
+      name: "Chronic Care",
+      emoji: "❤️",
+      price: 7500,           // placeholder monthly fee
+      discount: 15,          // placeholder member discount %
+      tagline: "Scheduled refills for long-term medication",
+      features: ["Automatic monthly refill scheduling", "15% member discount on orders", "Free delivery within Aba", "Monthly pharmacist check-in call"],
+      featured: false
+    }
+  ]
 };
 /* -------------------------------------------------- */
 
@@ -161,6 +191,47 @@ function updateCartUI() {
   document.getElementById("checkoutWa").href = waLink(msg);
 }
 
+/* ---- Subscription plans ---- */
+function renderPlans() {
+  const grid = document.getElementById("plansGrid");
+  grid.innerHTML = "";
+  CONFIG.plans.forEach(plan => {
+    const card = document.createElement("div");
+    card.className = "plan-card" + (plan.featured ? " featured" : "");
+    card.innerHTML = `
+      ${plan.featured ? '<span class="plan-flag">Most popular</span>' : ""}
+      <span class="plan-emoji">${plan.emoji}</span>
+      <h3 class="plan-name">${plan.name}</h3>
+      <p class="plan-tagline">${plan.tagline}</p>
+      <div class="plan-price">${fmt(plan.price)}<span>/month</span></div>
+      <span class="plan-discount">Save ${plan.discount}% on every order</span>
+      <ul class="plan-features">${plan.features.map(f => `<li>${f}</li>`).join("")}</ul>
+      <a class="btn ${plan.featured ? "btn-primary" : "btn-ghost"} btn-block" target="_blank" rel="noopener"
+         href="${waLink(`Hello ${CONFIG.name}! I'd like to subscribe to the ${plan.name} refill plan (${fmt(plan.price)}/month). Please tell me more.`)}">Subscribe on WhatsApp</a>`;
+    grid.appendChild(card);
+  });
+}
+
+/* ---- First-visit popup ---- */
+function setupPopup() {
+  const popup = document.getElementById("planPopup");
+  let seen = false;
+  try { seen = localStorage.getItem("aop_popup_seen") === "1"; } catch (e) {}
+  if (seen) return;
+  const close = remember => {
+    popup.classList.remove("show");
+    if (remember) { try { localStorage.setItem("aop_popup_seen", "1"); } catch (e) {} }
+  };
+  setTimeout(() => popup.classList.add("show"), 1500);
+  document.getElementById("planPopupClose").onclick = () => close(true);
+  document.getElementById("planPopupLater").onclick = () => close(true);
+  document.getElementById("planPopupCta").onclick = () => {
+    close(true);
+    document.getElementById("plans").scrollIntoView({ behavior: "smooth" });
+  };
+  popup.onclick = e => { if (e.target === popup) close(true); };
+}
+
 /* ---- Drawer, toast, search, menu ---- */
 function openCart() { document.getElementById("cartDrawer").classList.add("open"); document.getElementById("cartOverlay").classList.add("open"); }
 function closeCart() { document.getElementById("cartDrawer").classList.remove("open"); document.getElementById("cartOverlay").classList.remove("open"); }
@@ -180,6 +251,8 @@ document.addEventListener("DOMContentLoaded", () => {
   applyConfig();
   renderPills();
   renderProducts();
+  renderPlans();
+  setupPopup();
   updateCartUI();
 
   document.getElementById("cartBtn").onclick = openCart;
