@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ada Obowo Pharmacy & Wellness | Genuine Medicines, Delivered in Aba</title>
+<meta name="description" content="Ada Obowo Pharmacy & Wellness - your trusted neighbourhood pharmacy in Aba, online. Shop genuine health essentials, upload your prescription, talk to a licensed pharmacist, and get same-day delivery.">
+<meta property="og:title" content="PrimeCare Pharmacy">
+<meta property="og:description" content="Genuine medicines, pharmacist consults and same-day delivery in Aba, Abia State.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== Announcement bar ===== -->
+<div class="announce">
+  <span>🚚 Same-day delivery in Aba on orders before 4pm</span>
+  <span class="announce-dot">•</span>
+  <span>👨‍⚕️ Free consultation with a PCN-registered pharmacist</span>
+</div>
+
+<!-- ===== Header ===== -->
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">✚</span>
+      <span class="brand-name">Ada Obowo<span class="brand-sub">Pharmacy &amp; Wellness</span></span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#shop">Shop</a>
+      <a href="#prescription">Prescription</a>
+      <a href="#consult">Consult</a>
+      <a href="#delivery">Delivery</a>
+      <a href="#tips">Health Tips</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-actions">
+      <button class="cart-btn" id="cartBtn" type="button" aria-label="Open your order list">
+        🛒 <span>Order</span> <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <a class="btn btn-primary btn-sm header-wa" id="navWhatsapp" href="#" target="_blank" rel="noopener">WhatsApp us</a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Licensed &amp; trusted pharmacy</span>
+      <h1>Genuine medicines and care, <em>delivered to your door.</em></h1>
+      <p class="hero-sub">Shop everyday health essentials, send us your prescription, or chat with a PCN-registered pharmacist - all from your phone.</p>
+      <div class="hero-search">
+        <input type="search" id="heroSearch" placeholder="Search medicines, vitamins, skincare..." aria-label="Search products">
+        <button class="btn btn-primary" id="heroSearchBtn" type="button">Search</button>
+      </div>
+      <div class="hero-ctas">
+        <a href="#prescription" class="btn btn-dark">📄 Upload prescription</a>
+        <a href="#consult" class="btn btn-ghost">👨‍⚕️ Talk to a pharmacist</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>100%</strong><span>genuine products</span></div>
+        <div><strong>Same day</strong><span>delivery in Aba</span></div>
+        <div><strong>PCN</strong><span>registered pharmacist</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="hero.png" alt="A pharmacist handing over a bag of medicines at a modern pharmacy counter" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- ===== Trust strip ===== -->
+<section class="trust-strip">
+  <div class="container trust-grid">
+    <div class="trust-item"><span class="trust-icon">✅</span><div><strong>Verified &amp; genuine</strong><p>Every product sourced from authorised distributors.</p></div></div>
+    <div class="trust-item"><span class="trust-icon">👨‍⚕️</span><div><strong>Pharmacist reviewed</strong><p>Prescriptions checked by a PCN-registered pharmacist.</p></div></div>
+    <div class="trust-item"><span class="trust-icon">🚚</span><div><strong>Fast delivery</strong><p>Same-day within Aba, nationwide in 1-3 days.</p></div></div>
+    <div class="trust-item"><span class="trust-icon">🔒</span><div><strong>Private &amp; secure</strong><p>Your health details stay confidential.</p></div></div>
+  </div>
+</section>
+
+<!-- ===== Shop ===== -->
+<section class="section" id="shop">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Shop essentials</span>
+        <h2>Everyday health, sorted.</h2>
+        <p class="section-sub">Add items to your order list and check out on WhatsApp. Prices shown are demo prices for this template.</p>
+      </div>
+    </div>
+    <div class="shop-controls">
+      <div class="category-pills" id="categoryPills"></div>
+      <input type="search" id="shopSearch" class="shop-search" placeholder="Filter products..." aria-label="Filter products">
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+    <p class="rx-note">💊 Looking for a prescription medicine? We dispense those after a pharmacist reviews your prescription. <a href="#prescription">Upload it here</a>.</p>
+  </div>
+</section>
+
+<!-- ===== Prescription upload ===== -->
+<section class="section section-tint" id="prescription">
+  <div class="container split">
+    <div class="split-copy">
+      <span class="eyebrow">Prescriptions made easy</span>
+      <h2>Send your prescription. We handle the rest.</h2>
+      <ol class="steps">
+        <li><strong>Snap a clear photo</strong> of your doctor's prescription.</li>
+        <li><strong>Send it to us</strong> on WhatsApp or by email.</li>
+        <li><strong>Our pharmacist reviews it</strong> and confirms availability and price.</li>
+        <li><strong>Pay and relax</strong> - we deliver to your door.</li>
+      </ol>
+      <div class="split-ctas">
+        <a class="btn btn-primary rx-wa" href="#" target="_blank" rel="noopener">📷 Send on WhatsApp</a>
+        <a class="btn btn-ghost rx-email" href="#">✉️ Send by email</a>
+      </div>
+    </div>
+    <div class="split-card rx-card">
+      <div class="rx-card-inner">
+        <span class="rx-icon">📋</span>
+        <h3>Pharmacist reviewed</h3>
+        <p>Every prescription is checked by our PCN-registered pharmacist before we dispense. We will call or message you if anything needs clarifying.</p>
+        <div class="rx-badges">
+          <span>✔ Confidential</span>
+          <span>✔ No obligation</span>
+          <span>✔ Fast response</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Consult ===== -->
+<section class="section" id="consult">
+  <div class="container split split-reverse">
+    <div class="split-copy">
+      <span class="eyebrow">Free consultation</span>
+      <h2>Not sure what you need? Ask a pharmacist.</h2>
+      <p>Describe your symptoms or ask about a product. A PCN-registered pharmacist will guide you on safe over-the-counter options, dosage questions and when to see a doctor.</p>
+      <ul class="check-list">
+        <li>Dosage and usage questions</li>
+        <li>Drug interaction checks</li>
+        <li>Product recommendations</li>
+        <li>When to see a doctor instead</li>
+      </ul>
+      <div class="split-ctas">
+        <a class="btn btn-primary consult-wa" href="#" target="_blank" rel="noopener">💬 Chat with a pharmacist</a>
+      </div>
+      <p class="fine-print">Consultations are guidance only and do not replace a doctor's diagnosis.</p>
+    </div>
+    <div class="split-card consult-card">
+      <div class="chat-mock">
+        <div class="chat-bubble them">Hello! I've had a headache since morning. What can I take?</div>
+        <div class="chat-bubble us">Hi! Sorry about that. Any allergies or other medicines you're currently taking?</div>
+        <div class="chat-bubble them">None that I know of.</div>
+        <div class="chat-bubble us">Okay. A standard pain reliever should help - I'll recommend one and the right dose. If it persists beyond 2 days, please see a doctor. 🩺</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Delivery & store info ===== -->
+<section class="section section-tint" id="delivery">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Delivery &amp; pickup</span>
+        <h2>Get it how you want it.</h2>
+      </div>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <span class="info-icon">🚚</span>
+        <h3>Same-day delivery</h3>
+        <p>Order before 4pm for same-day delivery within Aba and environs. Nationwide delivery in 1-3 working days.</p>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">🏪</span>
+        <h3>Pickup in store</h3>
+        <p>Order ahead and skip the wait. We'll have your items packed and ready at the counter.</p>
+      </div>
+      <div class="info-card">
+        <span class="info-icon">🔔</span>
+        <h3>Refill reminders</h3>
+        <p>On a monthly medication? Message us "REMIND ME" and we'll nudge you before you run out.</p>
+      </div>
+    </div>
+    <div class="store-strip">
+      <div><span>📍</span><div><strong>Visit us</strong><p id="storeAddress">123 Market Road, Aba, Abia State</p></div></div>
+      <div><span>🕗</span><div><strong>Opening hours</strong><p id="storeHours">Mon-Sat: 8am - 9pm &nbsp;•&nbsp; Sun: 12pm - 6pm</p></div></div>
+      <div><span>📞</span><div><strong>Call us</strong><p><a id="storePhone" href="tel:+2340000000000">+234 000 000 0000</a></p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Health tips ===== -->
+<section class="section" id="tips">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Health tips</span>
+        <h2>Small habits, big health.</h2>
+      </div>
+    </div>
+    <div class="tips-grid">
+      <article class="tip-card">
+        <span class="tip-emoji">💧</span>
+        <h3>Take medicines with water</h3>
+        <p>Unless your pharmacist says otherwise, swallow tablets with a full glass of plain water - not juice, tea or soft drinks, which can affect how some medicines work.</p>
+      </article>
+      <article class="tip-card">
+        <span class="tip-emoji">🌡️</span>
+        <h3>Store medicines right</h3>
+        <p>Keep medicines in a cool, dry place away from sunlight and out of children's reach. Bathroom cabinets are often too humid - a bedroom drawer is usually better.</p>
+      </article>
+      <article class="tip-card">
+        <span class="tip-emoji">📅</span>
+        <h3>Finish your course</h3>
+        <p>Feeling better doesn't mean the job is done. Always complete the full course your doctor or pharmacist prescribed, especially antibiotics.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section section-tint" id="faq">
+  <div class="container faq-container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Questions</span>
+        <h2>Frequently asked</h2>
+      </div>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How do I order prescription medicines?</summary>
+        <p>Send a clear photo of your prescription on WhatsApp or by email. Our pharmacist will review it, confirm availability and price, and arrange delivery or pickup.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How fast is delivery?</summary>
+        <p>Orders placed before 4pm are delivered the same day within Aba and environs. Deliveries to other states take 1-3 working days.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Are your products genuine?</summary>
+        <p>Yes. We source all products from authorised distributors, and every order is checked by our PCN-registered pharmacist before dispatch.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I pay?</summary>
+        <p>Pay on delivery, by bank transfer, or by card - whichever suits you. We'll confirm payment options when we confirm your order.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I talk to a pharmacist before buying?</summary>
+        <p>Absolutely - and it's free. Use the "Chat with a pharmacist" button and our PCN-registered pharmacist will answer your questions.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA band ===== -->
+<section class="cta-band">
+  <div class="container cta-inner">
+    <h2>Your health can't wait. Neither should you.</h2>
+    <p>Message us now and get what you need today.</p>
+    <a class="btn btn-light cta-wa" href="#" target="_blank" rel="noopener">💬 Start on WhatsApp</a>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a href="#top" class="brand brand-footer">
+        <span class="brand-mark">✚</span>
+        <span class="brand-name">Ada Obowo<span class="brand-sub">Pharmacy &amp; Wellness</span></span>
+      </a>
+      <p class="footer-tag">Your trusted neighbourhood pharmacy, now online.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <a href="#shop">All products</a>
+      <a href="#prescription">Upload prescription</a>
+      <a href="#consult">Ask a pharmacist</a>
+    </div>
+    <div>
+      <h4>Help</h4>
+      <a href="#delivery">Delivery &amp; pickup</a>
+      <a href="#faq">FAQ</a>
+      <a href="#tips">Health tips</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a id="footerPhone" href="tel:+2340000000000">+234 000 000 0000</a>
+      <a id="footerEmail" href="mailto:hello@example.com">hello@example.com</a>
+      <p class="footer-hours">Mon-Sat 8am-9pm • Sun 12pm-6pm</p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© <span id="year"></span> Ada Obowo Pharmacy &amp; Wellness. Demo website - replace with the pharmacy's real details before going live.</p>
+  </div>
+</footer>
+
+<!-- ===== Floating WhatsApp ===== -->
+<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor"><path d="M16 .8C7.6.8.8 7.6.8 16c0 2.7.7 5.3 2 7.6L.8 31.2l7.8-2c2.2 1.2 4.7 1.9 7.4 1.9 8.4 0 15.2-6.8 15.2-15.2S24.4.8 16 .8zm0 27.7c-2.3 0-4.6-.6-6.5-1.8l-.5-.3-4.6 1.2 1.2-4.5-.3-.5c-1.3-2-2-4.3-2-6.7C3.3 9 9 3.3 16 3.3S28.7 9 28.7 16 23 28.5 16 28.5zm7-9.5c-.4-.2-2.3-1.1-2.6-1.2-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.3-2.1-2.6-.2-.4 0-.6.2-.8.2-.2.4-.4.6-.7.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.8-2-1.1-2.8-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.7.1-1 .5-.3.4-1.3 1.3-1.3 3.1s1.3 3.6 1.5 3.9c.2.3 2.6 4 6.3 5.6.9.4 1.6.6 2.1.8.9.3 1.7.2 2.3.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.5z"/></svg>
+</a>
+
+<!-- ===== Cart drawer ===== -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Your order list">
+  <div class="cart-head">
+    <h3>Your order list</h3>
+    <button class="cart-close" id="cartClose" type="button" aria-label="Close">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-foot">
+    <div class="cart-total"><span>Total</span><strong id="cartTotal">₦0</strong></div>
+    <a class="btn btn-primary btn-block" id="checkoutWa" href="#" target="_blank" rel="noopener">✅ Place order on WhatsApp</a>
+    <p class="fine-print">No payment online - we confirm price, delivery and payment options on WhatsApp.</p>
+  </div>
+</aside>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
