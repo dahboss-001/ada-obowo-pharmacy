@@ -416,3 +416,12 @@ h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; }
   .billing-toggle { width: 100%; }
   .bt-opt { flex: 1; justify-content: center; padding: 10px 8px; font-size: .8rem; }
 }
+
+/* ===== Mobile overflow fix (off-canvas nav expanded the viewport) ===== */
+html, body { overflow-x: hidden; }
+.main-nav { visibility: hidden; transition: transform .25s ease, visibility 0s linear .25s; }
+.main-nav.open { visibility: visible; transition: transform .25s ease, visibility 0s; }
+@media (min-width: 961px) {
+  .main-nav { visibility: visible; }
+}
+.popup-card { max-height: 88vh; overflow-y: auto; }
