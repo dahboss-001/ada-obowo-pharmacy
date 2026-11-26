@@ -11,32 +11,42 @@ const CONFIG = {
   address: "123 Market Road, Aba, Abia State",
   hours: "Mon-Sat: 8am - 9pm  •  Sun: 12pm - 6pm",
   // Subscription plans: EDIT prices, discounts and features to the pharmacy's real offer.
+  annualDiscountPct: 20,   // placeholder savings for paying annually
   plans: [
     {
-      name: "Basic",
+      name: "Essential Care",
       emoji: "💊",
       price: 2000,           // placeholder monthly fee
       discount: 5,           // placeholder member discount %
-      tagline: "For one person's everyday essentials",
-      features: ["Monthly refill of your regular items", "5% member discount on orders", "Free delivery within Aba", "WhatsApp refill reminders"],
+      tagline: "Everyday cover for one person",
+      features: ["5% off medication refills and purchases", "Prescription review before every refill", "WhatsApp refill reminders", "Free delivery within Aba"],
       featured: false
     },
     {
-      name: "Family",
-      emoji: "👨‍👩‍👧‍👦",
-      price: 5000,           // placeholder monthly fee
+      name: "Chronic Managed Care",
+      emoji: "❤️",
+      price: 4000,           // placeholder monthly fee
       discount: 10,          // placeholder member discount %
-      tagline: "Cover the whole household in one plan",
-      features: ["Monthly refills for up to 5 family members", "10% member discount on orders", "Free delivery within Aba", "Priority pharmacist chat"],
+      tagline: "Scheduled refills for long-term medication",
+      features: ["Automatic monthly refill scheduling", "10% off medication refills and purchases", "Prescription review before every refill", "Refill and check-in reminders", "Monthly pharmacist check-in call", "Free delivery within Aba"],
       featured: true
     },
     {
-      name: "Chronic Care",
-      emoji: "❤️",
-      price: 7500,           // placeholder monthly fee
+      name: "Family Care",
+      emoji: "👨‍👩‍👧‍👦",
+      price: 6500,           // placeholder monthly fee
+      discount: 12,          // placeholder member discount %
+      tagline: "One plan for the whole household",
+      features: ["Refills for up to 5 family members", "12% off medication refills and purchases", "Prescription review before every refill", "Priority pharmacist chat", "Free delivery within Aba"],
+      featured: false
+    },
+    {
+      name: "Priority Care",
+      emoji: "🌟",
+      price: 10000,          // placeholder monthly fee
       discount: 15,          // placeholder member discount %
-      tagline: "Scheduled refills for long-term medication",
-      features: ["Automatic monthly refill scheduling", "15% member discount on orders", "Free delivery within Aba", "Monthly pharmacist check-in call"],
+      tagline: "Our highest level of care and convenience",
+      features: ["Everything in Family Care", "15% off medication refills and purchases", "One free pharmacist teleconsultation monthly", "Priority same-day delivery in Aba", "Health education and wellness guidance"],
       featured: false
     }
   ]
@@ -192,23 +202,46 @@ function updateCartUI() {
 }
 
 /* ---- Subscription plans ---- */
+let billing = "monthly";
+
+function planPriceText(plan) {
+  if (billing === "annual") {
+    const annual = Math.round(plan.price * 12 * (1 - CONFIG.annualDiscountPct / 100) / 100) * 100;
+    return { main: fmt(annual), suffix: "/year" };
+  }
+  return { main: fmt(plan.price), suffix: "/month" };
+}
+
 function renderPlans() {
   const grid = document.getElementById("plansGrid");
   grid.innerHTML = "";
   CONFIG.plans.forEach(plan => {
+    const p = planPriceText(plan);
     const card = document.createElement("div");
     card.className = "plan-card" + (plan.featured ? " featured" : "");
     card.innerHTML = `
-      ${plan.featured ? '<span class="plan-flag">Most popular</span>' : ""}
+      ${plan.featured ? '<span class="plan-flag">Popular</span>' : ""}
       <span class="plan-emoji">${plan.emoji}</span>
       <h3 class="plan-name">${plan.name}</h3>
+      <div class="plan-price">${p.main}<span> ${p.suffix}</span></div>
       <p class="plan-tagline">${plan.tagline}</p>
-      <div class="plan-price">${fmt(plan.price)}<span>/month</span></div>
-      <span class="plan-discount">Save ${plan.discount}% on every order</span>
+      <span class="plan-discount">${plan.discount}% off medications</span>
+      <p class="plan-included">What's included:</p>
       <ul class="plan-features">${plan.features.map(f => `<li>${f}</li>`).join("")}</ul>
       <a class="btn ${plan.featured ? "btn-primary" : "btn-ghost"} btn-block" target="_blank" rel="noopener"
-         href="${waLink(`Hello ${CONFIG.name}! I'd like to subscribe to the ${plan.name} refill plan (${fmt(plan.price)}/month). Please tell me more.`)}">Subscribe on WhatsApp</a>`;
+         href="${waLink(`Hello ${CONFIG.name}! I'd like to subscribe to the ${plan.name} plan (${p.main}${p.suffix}, billed ${billing}). Please tell me more.`)}">Subscribe</a>`;
     grid.appendChild(card);
+  });
+}
+
+function setupBillingToggle() {
+  document.querySelectorAll("#billingToggle .bt-opt").forEach(btn => {
+    btn.onclick = () => {
+      billing = btn.dataset.billing;
+      document.querySelectorAll("#billingToggle .bt-opt").forEach(b => b.classList.toggle("active", b === btn));
+      document.querySelector("#billingToggle .bt-save").textContent = `Save ${CONFIG.annualDiscountPct}%`;
+      renderPlans();
+    };
   });
 }
 
@@ -252,6 +285,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPills();
   renderProducts();
   renderPlans();
+  setupBillingToggle();
   setupPopup();
   updateCartUI();
 

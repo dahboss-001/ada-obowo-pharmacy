@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 
@@ -173,8 +173,12 @@
       <div>
         <span class="eyebrow">Refill plans</span>
         <h2>Never run out again.</h2>
-        <p class="section-sub">Join a monthly refill plan: we schedule your medications, members save on every order, and delivery within Aba is free. Prices and discounts below are placeholders for the pharmacy to set.</p>
+        <p class="section-sub">Join a refill plan: we schedule your medications, members save on every order, and delivery within Aba is free. Prices and discounts below are placeholders for the pharmacy to set.</p>
       </div>
+    </div>
+    <div class="billing-toggle" id="billingToggle" role="group" aria-label="Billing period">
+      <button class="bt-opt" data-billing="annual" type="button">Bill Annually <span class="bt-save">Save 20%</span></button>
+      <button class="bt-opt active" data-billing="monthly" type="button">Bill Monthly</button>
     </div>
     <div class="plans-grid" id="plansGrid"></div>
     <p class="fine-print plans-note">No online payment - we confirm your plan, schedule and payment options with you on WhatsApp. Prescription medicines in any plan are dispensed only after pharmacist review.</p>
@@ -355,6 +359,6 @@
 
 <div class="toast" id="toast"></div>
 
-<script src="app.js?v=4"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>
