@@ -319,3 +319,12 @@ h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; }
   .footer-grid { grid-template-columns: 1fr; }
   .section { padding: 52px 0; }
 }
+
+/* ===== Small-screen polish ===== */
+@media (max-width: 520px) {
+  .announce { font-size: .72rem; gap: 8px; padding: 6px 10px; line-height: 1.35; }
+  .announce span { max-width: 46vw; }
+  .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .hero-stats strong { font-size: .92rem; white-space: nowrap; }
+  .hero-stats span { font-size: .72rem; }
+}
